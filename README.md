@@ -12,7 +12,7 @@ Microsoft.AspNetCore.SystemWebAdapters.FrameworkServices for the ASP.NET
 
 ##Startup files
 
-First of all you will start in the `Program.cs`. You must add the SystemWebAdapter.
+First of all you will start in the `Program.cs`. You must add the SystemWebAdapter to the services.
 
 ```csharp
 builder.Services.AddSystemWebAdapters()
@@ -32,3 +32,33 @@ builder.Services.AddSystemWebAdapters()
     })
     .AddSessionClient();
 ```
+
+Don't forget to also add it at the app itself.
+
+```csharp
+app.MapDefaultControllerRoute().RequireSystemWebAdapterSession();
+```
+
+After this you can switch to the `global.asax.cs`.
+
+```csharp
+protected void Application_Start()
+        {
+            //... other code ...
+
+            SystemWebAdapterConfiguration.AddSystemWebAdapters(this)
+                .AddProxySupport(options => options.UseForwardedHeaders = true)
+                .AddJsonSessionSerializer(options =>
+                {
+                    options.RegisterKey<string>("Baboon");
+                })
+                .AddRemoteAppServer(options => options.ApiKey = "6b5b73c9-454e-4916-918e-34e16e27e72f")
+                .AddSessionServer();
+        }
+```
+
+Make sure the ApiKey is the same and is a guid.
+
+##How to use it
+
+In the ASP.NET project it's all the same. But in the ASP.NET Core you will see a difference instead of a non-static class you will use the System.Web.HttpContext again.
