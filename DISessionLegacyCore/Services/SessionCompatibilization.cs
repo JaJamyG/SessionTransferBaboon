@@ -2,13 +2,6 @@
 {
     public class SessionCompatibilization : ISessionCompatibilization
     {
-        private readonly IHttpContextAccessor _HttpContextAccessor;
-
-        public SessionCompatibilization(IHttpContextAccessor httpContextAccessor)
-        {
-            _HttpContextAccessor = httpContextAccessor;
-        }
-
         public byte[] Get(string key)
         {
             throw new NotImplementedException();
@@ -21,7 +14,7 @@
 
         public string GetString(string key)
         {
-            return System.Web.HttpContext.Current.Session[key].ToString();
+            return (string)System.Web.HttpContext.Current.Session[key];
         }
 
         public void SetInt32(string key, int value)

@@ -1,7 +1,15 @@
 ﻿@model BaboonMe
 
-<h1>@Model.Babooned</h1>
-<form method="post" asp-action="Index">
-    <input asp-for="Baboon"/>
-    <input type="submit" value="Baboon me" />
-</form>
+<div class="baboon">
+    <div class="baboon-border">
+        <h1 class="text-center">ASP.NET Core</h1>
+        <h2 class="text-center">@Model.Babooned</h2>
+        <div>
+            <form method="post" asp-action="Index">
+                <input asp-for="Baboon" />
+                <input type="submit" value="Baboon me" />
+            </form>
+        </div>
+        <a href="/" class="btn btn-primary mt-5">Go back to ASP.NET app</a>
+    </div>
+</div>

@@ -28,3 +28,21 @@ textarea {
     background-color: #777;
     border-color: #fff
 }
+
+body {
+    background-image: url(https://thumbs.gfycat.com/BasicComfortableIlsamochadegu-size_restricted.gif);
+}
+
+.baboon {
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+    height: 82.5vh
+}
+
+.baboon-border {
+    background: white;
+    border-radius: 5px;
+    padding: 5rem;
+    display: block;
+}
