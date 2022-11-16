@@ -1,6 +1,5 @@
-using DISessionLegacyCore.Services;
-
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddSystemWebAdapters()
     .AddJsonSessionSerializer(options =>
     {
@@ -20,14 +19,12 @@ builder.Services.AddSystemWebAdapters()
 
 builder.Services.AddReverseProxy().LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
-builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddTransient<ISessionCompatibilization, SessionCompatibilization>();
 builder.Services.AddTransient<IGiveMeBaboon, GiveMeBaboon>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
-
 
 var app = builder.Build();
 

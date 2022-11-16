@@ -15,7 +15,7 @@ namespace DISession.Service
         }
 
         public string GiveBaboon()
-        {
+        {   
             return $"OE OE AA AA {_httpContextAccessor.GetString("Baboon")}";
         }
     }
