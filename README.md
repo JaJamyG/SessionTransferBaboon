@@ -3,6 +3,7 @@
 This project is pureply an example how to transfer session data while you are migrating from ASP.NET to ASP.NET Core.
 
 ASP.NET => .NET Framework 4.8
+
 ASP.NET Core => .NET 6
 
 ##Nuget's
