@@ -1,4 +1,4 @@
-#Session Transfer Baboon
+# Session Transfer Baboon
 
 This project is pureply an example how to transfer session data while you are migrating from ASP.NET to ASP.NET Core.
 
@@ -11,7 +11,7 @@ ASP.NET Core => .NET 6
 Microsoft.AspNetCore.SystemWebAdapters.CoreServices for the ASP.NET Core
 Microsoft.AspNetCore.SystemWebAdapters.FrameworkServices for the ASP.NET
 
-##Startup files
+## Startup files
 
 First of all you will start in the `Program.cs`. You must add the SystemWebAdapter to the services.
 
@@ -60,13 +60,13 @@ protected void Application_Start()
 
 Make sure the ApiKey is the same and is a guid.
 
-##How to use it
+## How to use it
 
 In the ASP.NET project it's all the same. But in the ASP.NET Core you will see a difference instead of a non-static class you will use the System.Web.HttpContext again.
 
 In order to have access in the business class you will need to make a service. We will build a interface in the .NET Standard library and a class who implements the  
 
-###.NET Standard
+### .NET Standard
 ```csharp
 public interface ISessionCompatibilization
     {
@@ -87,7 +87,7 @@ public interface ISessionCompatibilization
     }
 ```
 
-###ASP.NET
+### ASP.NET
 ```csharp
 public class SessionCompatibilization : ISessionCompatibilization
     {
@@ -156,7 +156,7 @@ public class SessionCompatibilization : ISessionCompatibilization
     }
 ```
 
-###ASP.NET Core
+### ASP.NET Core
 ```csharp
     public class SessionCompatibilization : ISessionCompatibilization
     {
