@@ -6,7 +6,7 @@ ASP.NET => .NET Framework 4.8
 
 ASP.NET Core => .NET 6
 
-##Nuget's
+## Nuget's
 
 Microsoft.AspNetCore.SystemWebAdapters.CoreServices for the ASP.NET Core
 Microsoft.AspNetCore.SystemWebAdapters.FrameworkServices for the ASP.NET
